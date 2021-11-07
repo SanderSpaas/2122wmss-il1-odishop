@@ -6,20 +6,20 @@ PHP project folder structure for the course Web &amp; Mobile Server-side, part o
 * [Course slides](https://intern.ikdoeict.be/apps/leercentrum/courses/wmss-course-materials/)
 * [PHP Documentation](https://www.php.net/docs.php)
 * [MySQL 5.7 Reference Manual](https://dev.mysql.com/doc/refman/5.7/en/)
-* [Doctrine DBAL 2.12 documentation](https://www.doctrine-project.org/projects/doctrine-dbal/en/2.12/index.html)
+* [Doctrine DBAL 3.1 documentation](https://www.doctrine-project.org/projects/doctrine-dbal/en/latest/index.html)
 * [Twig 3.x documentation](https://twig.symfony.com/doc/3.x/)
-* [bramus/router documentation](https://github.com/bramus/router)
+<!-- [bramus/router documentation](https://github.com/bramus/router) --> 
 
 ## Installing and developing your own project based on this boilerplate
 
-1. Create a new completely! empty project on gitlab, for example my-project
+1. Create a new completely! empty project on gitlab.com/ikdoeict, for example my-project
 2. Execute following commands on your system (pay attention !)
 ```shell
 mkdir my-project
 cd my-project
 git init
-git pull https://git.ikdoeict.be/joris.maervoet/wmss-boilerplate.git
-git remote add origin https://git.ikdoeict.be/<your-name>/my-project.git
+git pull https://gitlab.com/ikdoeict/joris.maervoet/wmss-boilerplate.git
+git remote add origin https://gitlab.com/ikdoeict/<your-name>/my-project.git
 git push -u origin master
 ```
 3. From now on, you can stage, commit and push as usual.
@@ -43,12 +43,12 @@ docker-compose down
 The MCE is provided with a `composer.json`/`composer.lock` file, providing the Twig and DBAL libraries
 * In order to install, run from your terminal/cmd
 ```shell
-docker exec -it <webcontainer-id> bash
+docker-compose exec php-web bash
 $ composer install
 $ exit
 ```
 
-## About the autoloader
+<!--## About the autoloader
 
 `composer.json` is configured such that the classes in "src/" (and subfolders), and the file "config/database.php" are autoloaded.
 * This means there is no need to require these classes anymore in your `public/*.php` scripts.
@@ -58,7 +58,7 @@ $ exit
 docker exec -it <webcontainer-id> bash
 $ composer dump-autoload
 $ exit
-```
+```-->
 
 ## Recipes and troubleshooting
 

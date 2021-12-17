@@ -122,7 +122,15 @@ class __TwigTemplate_02000c9567378b82c4ddc98250a0e11af4a67f19c7f13563cde1e276f1b
             echo twig_escape_filter($this->env, (twig_get_attribute($this->env, $this->source, $context["product"], "price", [], "any", false, false, false, 37) / 1.21), "html", null, true);
             echo "</li>
                 </ul>
-                <div id=\"product\">
+            ";
+            // line 39
+            if ((twig_get_attribute($this->env, $this->source, $context["product"], "quantity", [], "any", false, false, false, 39) == 0)) {
+                echo "<strong>Tijdelijk uitverkocht</strong>
+                                        ";
+            } else {
+                // line 40
+                echo " 
+                                        <div id=\"product\">
                     <div class=\"form-group\">
                         <form action=\"#\" method=\"post\">
                             <input type=\"hidden\" name=\"action\" value=\"add\">
@@ -130,6 +138,11 @@ class __TwigTemplate_02000c9567378b82c4ddc98250a0e11af4a67f19c7f13563cde1e276f1b
                         </form>
                     </div>
                 </div>
+                ";
+            }
+            // line 49
+            echo " 
+               
             </div>
         </div>
 \t\t<!-- END OF PAGE CONTENT -->
@@ -138,7 +151,7 @@ class __TwigTemplate_02000c9567378b82c4ddc98250a0e11af4a67f19c7f13563cde1e276f1b
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['product'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 51
+        // line 55
         echo "    ";
     }
 
@@ -154,7 +167,7 @@ class __TwigTemplate_02000c9567378b82c4ddc98250a0e11af4a67f19c7f13563cde1e276f1b
 
     public function getDebugInfo()
     {
-        return array (  142 => 51,  122 => 37,  117 => 35,  110 => 31,  106 => 30,  102 => 29,  97 => 27,  88 => 21,  69 => 11,  64 => 10,  56 => 4,  52 => 3,  46 => 2,  35 => 1,);
+        return array (  155 => 55,  144 => 49,  132 => 40,  127 => 39,  122 => 37,  117 => 35,  110 => 31,  106 => 30,  102 => 29,  97 => 27,  88 => 21,  69 => 11,  64 => 10,  56 => 4,  52 => 3,  46 => 2,  35 => 1,);
     }
 
     public function getSourceContext()

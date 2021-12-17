@@ -33,15 +33,18 @@
                                         <span class="price">€ {{product.price}} incl. BTW</span>
                                         <br>
                                             {%if product.quantity == 0%}<strong>Tijdelijk uitverkocht</strong>
-                                        {%endif%} 
-                                    </p>
-                                </div>
-                                <div class="button-group">
+                                        {% else %} 
+                                    <span>Voorraad: {{product.quantity}}</span>
+                                        <div class="button-group">
 									<form action="#" method="post">
                                         <input type="hidden" name="action" value="add">
 										<button type="submit" title="Bestel nu" name="product_id" value="{{product.id}}"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">Bestel nu</span></button>
 									</form>
                                 </div>
+                                        {% endif %} 
+                                    </p>
+                                </div>
+                                
                             </div>
                         </div>
                     </div>

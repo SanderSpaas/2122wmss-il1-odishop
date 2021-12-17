@@ -36,7 +36,9 @@
                     </li>
                     <li>Excl. BTW: € {{ product.price / 1.21 }}</li>
                 </ul>
-                <div id="product">
+            {%if product.quantity == 0%}<strong>Tijdelijk uitverkocht</strong>
+                                        {% else %} 
+                                        <div id="product">
                     <div class="form-group">
                         <form action="#" method="post">
                             <input type="hidden" name="action" value="add">
@@ -44,6 +46,8 @@
                         </form>
                     </div>
                 </div>
+                {% endif %} 
+               
             </div>
         </div>
 		<!-- END OF PAGE CONTENT -->

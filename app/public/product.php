@@ -13,7 +13,6 @@ $twig = new Twig\Environment($loader, [
     'auto_reload' => true
 ]);
 
-
 $id = isset($_GET['id']) ? (int) $_GET['id'] : ''; // The id of the product passed by the URL
 //alle data uit database gaan halen
 if ($id) {

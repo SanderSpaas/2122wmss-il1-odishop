@@ -1,0 +1,95 @@
+{% extends "layout.twig" %}
+{% block content %} 
+<!-- START OF PAGE CONTENT -->
+{%if formErrors|length > 0 %}
+<div class="alert alert-danger">
+			<i class="fa fa-exclamation-circle"></i>
+			<button type="button" class="close" data-dismiss="alert">×</button>			
+			Volgende fout(en) zijn opgetreden:
+			<ul>
+                {% for error in formErrors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}	
+<div class="row">
+			<div id="content" class="col-sm-12">
+				 <h1>Zoeken</h1>
+				 <form action="search.php" method="POST">
+					 <label class="control-label" for="input-search">Zoekcriteria</label>
+					 <div class="row">
+						 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+						    <input type="text" name="term" value="{{term}}" placeholder="Zoekterm" id="input-search" class="form-control"/>
+						 </div>
+						 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+						   <select name="color_id" class="form-control">
+							  <option value="0">Alle kleuren</option>
+                              {% for kleur in kleuren %}
+                                                <option option value="{{ kleur.id }}" {% if kleur.id == color_id %}selected="selected"{% endif %}>
+                                                    {{ kleur.name }}
+                                                </option>
+                                            {% endfor %}   
+						   </select>
+						 </div>
+						 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+							 Prijs (in €) tussen <input type="number" name="minprice" min="0" max="1000" step="50" value="{{minprice}}" class="form-control" style="width: auto;display: inline;">
+							 en
+							 <input type="number" name="maxprice" min="0" max="1000" step="50" value="{{maxprice}}" class="form-control" style="width: auto;display: inline;">
+						 </div>
+					 </div>
+					<br/>
+					 <input type="submit" name="moduleAction" value="Zoeken" id="button-search" class="btn btn-primary"/>
+				 </form>
+				 {% if products == empty %}
+				 <p>Geen producten gevonden.</p>
+                {% else %}
+            <h2>Producten die aan de zoekcriteria voldoen</h2>
+                <div class="row">
+					<div class="col-sm-3">
+					   <div class="btn-group">
+						  <button type="button" id="list-view" class="btn btn-default" data-toggle="tooltip" title="List"><i class="fa fa-th-list"></i></button>
+						  <button type="button" id="grid-view" class="btn btn-default" data-toggle="tooltip" title="Grid"><i class="fa fa-th"></i></button>
+					   </div>
+					</div>
+				 </div>
+				 <br/>
+				 <div class="row">
+                {% endif %}
+			</div>
+		</div>
+		<!-- END OF PAGE CONTENT -->
+        {% for product in products %}
+                    <!-- Start of product info -->
+                    <div class="product-layout product-list col-xs-12">
+                        <div class="product-thumb">
+                            <div class="image">
+                                <a href="product.php?id={{product.id}}"><img src="image/{%if product.image == empty%}notavailable.jpg
+                                {%else%}catalog/{{product.image}}{%endif%}" alt="{{product.title}}" title="{{product.title}}" class="img-responsive" /></a>
+                            </div>
+                            <div>
+                                <div class="caption">
+                                    <h4><a href="product.php?id={{product.id}}">{{product.title}}</a></h4>
+                                    <p>{{product.description}}</p>
+                                    <p class="price">
+                                        <span class="price">€ {{product.price}} incl. BTW</span>
+                                        <br>
+                                            {%if product.quantity == 0%}<strong>Tijdelijk uitverkocht</strong>
+                                        {% else %} 
+                                    <span>Voorraad: {{product.quantity}}</span>
+                                        <div class="button-group">
+									<form action="#" method="post">
+                                        <input type="hidden" name="action" value="add">
+										<button type="submit" title="Bestel nu" name="product_id" value="{{product.id}}"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">Bestel nu</span></button>
+									</form>
+                                </div>
+                                        {% endif %} 
+                                    </p>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of product info -->
+                    {% endfor %}
+    {% endblock %}

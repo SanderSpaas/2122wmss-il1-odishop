@@ -115,20 +115,29 @@ class __TwigTemplate_73415d0b48fd136b53658e1563cb93f20f3c45337569f756f6e8b4ee34d
             if ((twig_get_attribute($this->env, $this->source, $context["product"], "quantity", [], "any", false, false, false, 35) == 0)) {
                 echo "<strong>Tijdelijk uitverkocht</strong>
                                         ";
-            }
-            // line 36
-            echo " 
-                                    </p>
-                                </div>
-                                <div class=\"button-group\">
+            } else {
+                // line 36
+                echo " 
+                                    <span>Voorraad: ";
+                // line 37
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "quantity", [], "any", false, false, false, 37), "html", null, true);
+                echo "</span>
+                                        <div class=\"button-group\">
 \t\t\t\t\t\t\t\t\t<form action=\"#\" method=\"post\">
                                         <input type=\"hidden\" name=\"action\" value=\"add\">
 \t\t\t\t\t\t\t\t\t\t<button type=\"submit\" title=\"Bestel nu\" name=\"product_id\" value=\"";
-            // line 42
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "id", [], "any", false, false, false, 42), "html", null, true);
-            echo "\"><i class=\"fa fa-shopping-cart\"></i> <span class=\"hidden-xs hidden-sm hidden-md\">Bestel nu</span></button>
+                // line 41
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "id", [], "any", false, false, false, 41), "html", null, true);
+                echo "\"><i class=\"fa fa-shopping-cart\"></i> <span class=\"hidden-xs hidden-sm hidden-md\">Bestel nu</span></button>
 \t\t\t\t\t\t\t\t\t</form>
                                 </div>
+                                        ";
+            }
+            // line 44
+            echo " 
+                                    </p>
+                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -138,7 +147,7 @@ class __TwigTemplate_73415d0b48fd136b53658e1563cb93f20f3c45337569f756f6e8b4ee34d
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['product'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 50
+        // line 53
         echo "\t\t\t\t</div>\t\t\t\t\t
 \t
 \t\t\t</div>
@@ -158,7 +167,7 @@ class __TwigTemplate_73415d0b48fd136b53658e1563cb93f20f3c45337569f756f6e8b4ee34d
 
     public function getDebugInfo()
     {
-        return array (  142 => 50,  128 => 42,  120 => 36,  115 => 35,  110 => 33,  105 => 31,  99 => 30,  86 => 26,  79 => 25,  73 => 21,  69 => 20,  46 => 2,  35 => 1,);
+        return array (  151 => 53,  137 => 44,  130 => 41,  123 => 37,  120 => 36,  115 => 35,  110 => 33,  105 => 31,  99 => 30,  86 => 26,  79 => 25,  73 => 21,  69 => 20,  46 => 2,  35 => 1,);
     }
 
     public function getSourceContext()

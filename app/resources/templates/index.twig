@@ -1,0 +1,54 @@
+{% extends "layout.twig" %}
+{% block content %} 
+<!-- START OF PAGE CONTENT -->
+<div class="row">
+            <div id="content" class="col-sm-12">
+			
+                <h2 style="margin-top: 0;">Alle producten</h2>
+                <hr>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="btn-group">
+                            <button type="button" id="list-view" class="btn btn-default" data-toggle="tooltip" title="List"><i class="fa fa-th-list"></i></button>
+                            <button type="button" id="grid-view" class="btn btn-default" data-toggle="tooltip" title="Grid"><i class="fa fa-th"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+
+                <div class="row">
+                {% for product in products %}
+                    <!-- Start of product info -->
+                    <div class="product-layout product-list col-xs-12">
+                        <div class="product-thumb">
+                            <div class="image">
+                                <a href="product.php?id={{product.id}}"><img src="image/{%if product.image == empty%}notavailable.jpg
+                                {%else%}catalog/{{product.image}}{%endif%}" alt="{{product.title}}" title="{{product.title}}" class="img-responsive" /></a>
+                            </div>
+                            <div>
+                                <div class="caption">
+                                    <h4><a href="product.php?id={{product.id}}">{{product.title}}</a></h4>
+                                    <p>{{product.description}}</p>
+                                    <p class="price">
+                                        <span class="price">€ {{product.price}} incl. BTW</span>
+                                        <br>
+                                            {%if product.quantity == 0%}<strong>Tijdelijk uitverkocht</strong>
+                                        {%endif%} 
+                                    </p>
+                                </div>
+                                <div class="button-group">
+									<form action="#" method="post">
+                                        <input type="hidden" name="action" value="add">
+										<button type="submit" title="Bestel nu" name="product_id" value="{{product.id}}"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">Bestel nu</span></button>
+									</form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of product info -->
+                    {% endfor %}
+				</div>					
+	
+			</div>
+		</div>
+    {% endblock %}

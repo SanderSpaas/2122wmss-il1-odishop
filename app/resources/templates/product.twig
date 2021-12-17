@@ -1,0 +1,51 @@
+{% extends "layout.twig" %}
+{% block content %} 
+{% for product in products %}
+<!-- START OF PAGE CONTENT -->
+<div class="row">
+            <div class="col-sm-8">
+                <ul class="thumbnails">
+                    <li>
+                        <a class="thumbnail" href="#" title="DeLonghi Icona Vintage Blauw Broodrooster">
+                            <img src="image/{%if product.image == empty%}notavailable.jpg
+                                {%else%}catalog/{{product.image}}{%endif%}" title="{{product.title}}" alt="{{product.title}}">
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tab-description" data-toggle="tab">Beschrijving</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab-description">
+                        <p class="intro">
+                        {{product.description}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <h1 style="margin-top:0;">{{product.title}}</h1>
+                <ul class="list-unstyled">
+                    <li><strong>Productcode:</strong> OD00000{{product.id}}</li>
+                    <li><strong>Kleur:</strong> {{product.name}}</li>
+                    <li><strong>Aantal items beschikbaar:</strong> {{product.quantity}}</li>
+                </ul>
+                <ul class="list-unstyled">
+                    <li>
+                        <h2>€ {{product.price}}</h2>
+                    </li>
+                    <li>Excl. BTW: € {{ product.price / 1.21 }}</li>
+                </ul>
+                <div id="product">
+                    <div class="form-group">
+                        <form action="#" method="post">
+                            <input type="hidden" name="action" value="add">
+                            <button type="submit" title="Bestel nu" name="product_id" value="5" id="button-cart" class="btn btn-primary btn-lg btn-block">Bestellen</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<!-- END OF PAGE CONTENT -->
+        {% endfor %}
+    {% endblock %}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="nl">
+<head>
+    <meta charset="UTF-8" />
+    <!-- ODISHOP (C) 2019 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Odishop &mdash; Een winkelkar die jij vult</title>
+    <meta name="description" content="Example of category description" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="image/cart.png" rel="icon" />
+    <script src="javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
+    <link href="javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+    <script src="javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <link href="javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css" />
+    <link href="stylesheet/stylesheet.css" rel="stylesheet">
+    <script src="javascript/common.js" type="text/javascript"></script>
+</head>
+<body class="product-category-20">
+    <nav id="top">
+        <div class="container">
+            <div id="top-links" class="nav pull-right">
+                <ul class="list-inline">
+                    <li>
+                        <a href="login.php">
+                            <i class="fa fa-user"></i>&nbsp;
+                            <span>Inloggen</span>
+                        </a>
+                    </li>
+                    <li><a href="#" title="Afrekenen"><i class="fa fa-share"></i> <span class="hidden-xs hidden-sm hidden-md">Afrekenen</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div id="logo">
+                        <a href="index.php">
+							<img src="image/odishop.png" title="Odishop" alt="Odishop" class="img-responsive" />
+						</a>
+                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <form action="search.php" method="get" id="search" class="input-group">
+                        <input type="text" name="term" value="" placeholder="Zoeken" class="form-control input-lg" />
+                        <span class="input-group-btn">
+							<button type="submit" title="Zoeken" value="Zoeken" class="btn btn-default btn-lg"><i class="fa fa-search"></i></button>
+						</span>
+                    </form>
+                </div>
+                <div class="col-sm-3">
+                    <!-- START OF SHOPPING CART -->
+                    <div id="cart" class="btn-group btn-block">
+                        <button type="button" data-toggle="dropdown" data-loading-text="Loading..." class="btn btn-inverse btn-block btn-lg dropdown-toggle"><i class="fa fa-shopping-cart"></i>&nbsp;<span id="cart-total"> 0 item(s) - € 0</span></button>
+                        <ul class="dropdown-menu pull-right">
+                            <li>
+                                <p class="text-center">Jouw winkelkar is leeg</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END OF SHOPPING CART -->
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <nav id="menu" class="navbar">
+            <div class="navbar-header"><span id="category" class="visible-xs">Meer informatie</span>
+                <button type="button" class="btn btn-navbar navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"><i class="fa fa-bars"></i></button>
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="page.php?id=2">Contact</a></li>
+                    <li><a href="page.php?id=1">Openingsuren</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="container">
+		<!-- START OF PAGE CONTENT -->
+		<div class="row">
+			<div id="content" class="col-sm-12">
+				 <h1>Zoeken</h1>
+				 <form action="search.php" method="get">
+					 <label class="control-label" for="input-search">Zoekcriteria</label>
+					 <div class="row">
+						 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+						    <input type="text" name="term" value="" placeholder="Zoekterm" id="input-search" class="form-control"/>
+						 </div>
+						 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+						   <select name="color_id" class="form-control">
+							  <option value="0">Alle kleuren</option>
+							  <option value="1">Crème</option>
+							  <option value="5">Vintage Blue</option>
+							  <option value="2">Vintage Red</option>
+						   </select>
+						 </div>
+						 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+							 Prijs (in €) tussen <input type="number" name="minprice" min="0" max="1000" step="50" value="0" class="form-control" style="width: auto;display: inline;">
+							 en
+							 <input type="number" name="maxprice" min="0" max="1000" step="50" value="1000" class="form-control" style="width: auto;display: inline;">
+						 </div>
+					 </div>
+					<br/>
+					 <input type="submit" value="Zoeken" id="button-search" class="btn btn-primary"/>
+				 </form>
+
+				 <h2>Producten die aan de zoekcriteria voldoen</h2>
+				 
+				 <p>Geen producten gevonden.</p>
+			</div>
+		</div>
+		<!-- END OF PAGE CONTENT -->
+    </div>
+    <footer>
+        <div class="container">
+
+            <p>Examen Webscripting &mdash; Server-side Scripting &copy; 2019 &bullet; Design by <a href="http://www.opencart.com">OpenCart</a></p>
+			<hr>
+        </div>
+		
+    </footer>
+</body>
+</html>
